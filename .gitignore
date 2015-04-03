@@ -1,0 +1,14 @@
+# lets_be_rational/*.py
+lets_be_rational/*.so
+!lets_be_rational/__init__.py
+src/LetsBeRational_wrap.c
+*.o
+*.pyc
+
+build
+# dist
+# *.egg-info
+# *.egg
+
+*.sh
+*scratch*

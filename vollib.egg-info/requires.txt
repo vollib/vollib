@@ -1,0 +1,5 @@
+lets_be_rational
+simplejson
+matplotlib
+pandas
+scipy
