@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name='vollib',
-    version='0.1.0',
+    version='0.1.1',
     description='',
     url='http://vollib.org',
     download_url='git+https://github.com/vollib/vollib.git#egg=vollib',

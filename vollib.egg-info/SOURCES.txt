@@ -1,3 +1,4 @@
+setup.py
 vollib/__init__.py
 vollib.egg-info/PKG-INFO
 vollib.egg-info/SOURCES.txt
