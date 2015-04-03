@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(
     name='vollib',
-    version='0.1.1',
+    version='0.1.2',
     description='',
     url='http://vollib.org',
     download_url='git+https://github.com/vollib/vollib.git#egg=vollib',
@@ -20,5 +20,5 @@ setup(
         'pandas',
         'scipy'
     ],
-    packages=['vollib']
+    packages=find_packages()
 )
