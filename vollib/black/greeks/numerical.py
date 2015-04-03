@@ -178,7 +178,8 @@ def gamma(flag, F, K, t, r, sigma):
 
 def test():
     
-    """
+    '''Tests by comparing the analytical and numerical greek values.
+    
     >>> S =  49
     >>> K = 50 
     >>> r = .05
@@ -212,7 +213,7 @@ def test():
     >>> v2 = atheta(flag, S, K, t, r, sigma)
     >>> abs(v1-v2)<epsilon
     True
-    """
+    '''
     pass
 
 
@@ -260,9 +261,8 @@ def plot_numerical_vs_analytical(greek, flag):
 
 
     plt.show()
+    
 
-
-#plot_numerical_vs_analytical('d','p')
 
 # -----------------------------------------------------------------------------
 # MAIN

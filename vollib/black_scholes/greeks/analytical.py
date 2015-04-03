@@ -53,7 +53,23 @@ from vollib.black_scholes import d1,d2
 
 def delta(flag, S, K, t, r, sigma):
     
-    """
+    """Return Black-Scholes delta of an option.
+    
+    
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+    
+    
     Example 17.1, page 355, Hull:
     
     >>> S = 49
@@ -79,7 +95,22 @@ def delta(flag, S, K, t, r, sigma):
 
 def theta(flag, S, K, t, r, sigma):
 
-    """
+    """Return Black-Scholes theta of an option.
+    
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+    
+    
     The text book analytical formula does not divide by 365,
     but in practice theta is defined as the change in price
     for each day change in t, hence we divide by 365.
@@ -116,7 +147,21 @@ def theta(flag, S, K, t, r, sigma):
 
 def gamma(flag, S, K, t, r, sigma):
     
-    """
+    """Return Black-Scholes gamma of an option.
+    
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+    
     Example 17.4, page 364, Hull:
 
     >>> S = 49
@@ -140,7 +185,22 @@ def gamma(flag, S, K, t, r, sigma):
 
 def vega(flag, S, K, t, r, sigma):
 
-    '''
+    """Return Black-Scholes vega of an option.
+    
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+    
+    
     The text book analytical formula does not multiply by .01,
     but in practice vega is defined as the change in price
     for each 1 percent change in IV, hence we multiply by 0.01.
@@ -160,7 +220,7 @@ def vega(flag, S, K, t, r, sigma):
     >>> abs(vega_calc - vega_text_book) < .01
     True
 
-    '''
+    """
 
     d_1 = d1(S, K, t, r, sigma)
     return S * pdf(d_1) * numpy.sqrt(t) * 0.01
@@ -168,7 +228,21 @@ def vega(flag, S, K, t, r, sigma):
 
 def rho(flag, S, K, t, r, sigma):
 
-    '''
+    """Return Black-Scholes rho of an option.
+    
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+    
     The text book analytical formula does not multiply by .01,
     but in practice rho is defined as the change in price
     for each 1 percent change in r, hence we multiply by 0.01.
@@ -188,7 +262,7 @@ def rho(flag, S, K, t, r, sigma):
     >>> abs(rho_calc - rho_text_book) < .0001
     True
 
-    '''
+    """
 
     d_2 = d2(S, K, t, r, sigma)
     e_to_the_minus_rt = numpy.exp(-r*t)

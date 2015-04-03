@@ -50,7 +50,25 @@ from vollib.black import d1,d2, black
 
 def delta(flag, F, K, t, r, sigma):
     
-    """
+    
+    """Returns the Black delta of an option.
+
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: annual risk-free interest rate
+    :type r: float
+    :param sigma: volatility
+    :type sigma: float
+
+    :returns:  float 
+      
+    
     >>> F = 49
     >>> K = 50 
     >>> r = .05
@@ -73,7 +91,24 @@ def delta(flag, F, K, t, r, sigma):
 
 def theta(flag, F, K, t, r, sigma):
 
-    """
+
+    """Returns the Black theta of an option.
+
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: annual risk-free interest rate
+    :type r: float
+    :param sigma: volatility
+    :type sigma: float
+
+    :returns:  float 
+
     >>> F = 49
     >>> K = 50 
     >>> r = .05
@@ -99,8 +134,6 @@ def theta(flag, F, K, t, r, sigma):
     pdf_d1 = pdf(D1)
     cnd_d2 = cnd(D2)
 
-    
-
     first_term = F * e_to_the_minus_rt * pdf(D1) * sigma / two_sqrt_t 
 
     if flag == 'c':        
@@ -118,7 +151,22 @@ def theta(flag, F, K, t, r, sigma):
 
 def gamma(flag, F, K, t, r, sigma):
     
-    """
+    """Returns the Black gamma of an option.
+
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: annual risk-free interest rate
+    :type r: float
+    :param sigma: volatility
+    :type sigma: float
+
+    :returns:  float 
 
     >>> F = 49
     >>> K = 50 
@@ -140,11 +188,32 @@ def gamma(flag, F, K, t, r, sigma):
 
 def vega(flag, F, K, t, r, sigma):
 
-    '''
-    The text book analytical formula does not multiply by .01,
-    but in practice vega is defined as the change in price
-    for each 1 percent change in IV, hence we multiply by 0.01.
 
+    """Returns the Black vega of an option.
+
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: annual risk-free interest rate
+    :type r: float
+    :param sigma: volatility
+    :type sigma: float
+
+    :returns:  float     
+    
+    ::
+    
+      ==========================================================
+      Note: The text book analytical formula does not multiply by .01,
+      but in practice vega is defined as the change in price
+      for each 1 percent change in IV, hence we multiply by 0.01.
+      ==========================================================
+    
     
     >>> F = 49
     >>> K = 50 
@@ -158,19 +227,40 @@ def vega(flag, F, K, t, r, sigma):
     >>> abs(v1-v2) < .000001
     True
 
-    '''
+    """
 
     D1 = d1(F, K, t, r, sigma)
     return F * numpy.exp(-r*t) * pdf(D1) * numpy.sqrt(t) * 0.01
 
 
 def rho(flag, F, K, t, r, sigma):
+    
+    """Returns the Black rho of an option.
 
-    '''
-    The text book analytical formula does not multiply by .01,
-    but in practice rho is defined as the change in price
-    for each 1 percent change in r, hence we multiply by 0.01.
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: annual risk-free interest rate
+    :type r: float
+    :param sigma: volatility
+    :type sigma: float
 
+    :returns:  float     
+    
+    
+    ::
+
+      ==========================================================
+      The text book analytical formula does not multiply by .01,
+      but in practice rho is defined as the change in price
+      for each 1 percent change in r, hence we multiply by 0.01.
+      ==========================================================
+      
     >>> F = 49
     >>> K = 50 
     >>> r = .05
@@ -186,7 +276,7 @@ def rho(flag, F, K, t, r, sigma):
     >>> v2 = -0.011243286001308292
     >>> abs(v1-v2) < .000001
     True
-    '''
+    """
 
     return -t * black(flag, F, K, t, r, sigma) * .01
 

@@ -1,3 +1,39 @@
+# -*- coding: utf-8 -*-
+"""
+    vollib.black_scholes.implied_volatility
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    A library for option pricing, implied volatility, and
+    greek calculation.  vollib is based on lets_be_rational,
+    a Python wrapper for LetsBeRational by Peter Jaeckel as 
+    described below.
+
+    :copyright: © 2015 Iota Technologies Pte Ltd    
+    :license: MIT, see LICENSE for more details.
+
+    About LetsBeRational:
+    ~~~~~~~~~~~~~~~~~~~~~~~
+
+    The source code of LetsBeRational resides at www.jaeckel.org/LetsBeRational.7z .
+
+    :: 
+
+      ======================================================================================
+      Copyright © 2013-2014 Peter Jäckel.
+
+      Permission to use, copy, modify, and distribute this software is freely granted,
+      provided that this notice is preserved.
+
+      WARRANTY DISCLAIMER
+      The Software is provided "as is" without warranty of any kind, either express or implied,
+      including without limitation any implied warranties of condition, uninterrupted use,
+      merchantability, fitness for a particular purpose, or non-infringement.
+      ======================================================================================
+
+"""
+
+
+
 # -----------------------------------------------------------------------------
 # IMPORTS
 
@@ -23,15 +59,20 @@ e = numpy.e
 def implied_volatility_brent(price, S, K, t, r, flag):
 
     """Calculate the Black-Scholes implied volatility
-    using the Brent method.
+    using the Brent method (for reference).
 
-    Keyword arguments:
-    S -- spot price of the underlying asset
-    K -- option strike price
-    sigma -- annualized standard deviation, or volatility
-    t -- time to expiration in years
-    r -- the risk-free interest rate
-    flag -- 'p' or 'c' for put or call
+    :param price: the Black-Scholes option price
+    :type price: float
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str  
     
     
     >>> S = 100
@@ -58,16 +99,20 @@ def implied_volatility_limited_iterations(price, S, K, t, r, flag, N):
 
     """Calculate the Black-Scholes implied volatility with limited iterations.
 
-    Keyword arguments:
-    S -- spot price of the underlying asset
-    K -- option strike price
-    sigma -- annualized standard deviation, or volatility
-    t -- time to expiration in years
-    r -- the risk-free interest rate
-    flag -- 'p' or 'c' for put or call
-    N -- the maximum number of iterations to perform
-
-
+    :param price: the Black-Scholes option price
+    :type price: float
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str  
+    :param N: the maximum number of iterations to perform
+    :type N: int
 
     >>> S = 100
     >>> K = 100
@@ -104,14 +149,18 @@ def implied_volatility(price, S, K, t, r, flag):
 
     """Calculate the Black-Scholes implied volatility.
 
-    Keyword arguments:
-    S -- spot price of the underlying asset
-    K -- option strike price
-    sigma -- annualized standard deviation, or volatility
-    t -- time to expiration in years
-    r -- the risk-free interest rate
-    flag -- 'p' or 'c' for put or call
-    
+    :param price: the Black-Scholes option price
+    :type price: float
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str 
     
     >>> S = 100
     >>> K = 100

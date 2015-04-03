@@ -64,10 +64,15 @@ def normalised_implied_volatility(beta, x, flag):
     of Black implied volatility.
 
     Keyword arguments:
-    beta -- the normalized Black-76 price
-    x -- the ln(F/K) where K is the strike price, and F is the futures price
-    flag -- 'p' or 'c' for put or call
-
+    
+    :param x: ln(F/K) where K is the strike price, and F is the futures price
+    :type x: float
+    :param beta: the normalized Black price
+    :type beta: float
+    :param flag: 'p' or 'c' for put or call 
+    :type flag: str       
+    
+    
     >>> beta_call = normalised_black(0.0, 0.2, 'c')
     >>> beta_put = normalised_black(0.1,0.23232323888,'p')
     >>> normalized_b76_iv_call = normalised_implied_volatility(beta_call, 0.0, 'c')
@@ -89,10 +94,12 @@ def normalised_implied_volatility_limited_iterations(beta, x, flag, N):
     """Calculate the normalised Black implied volatility,
     with limited iterations.
 
-    Keyword arguments:
-    beta -- the normalized Black-76 price
-    x -- the ln(F/K) where K is the strike price, and F is the futures price
-    flag -- 'p' or 'c' for put or call
+    :param x: ln(F/K) where K is the strike price, and F is the futures price
+    :type x: float
+    :param beta: the normalized Black price
+    :type beta: float
+    :param flag: 'p' or 'c' for put or call 
+    :type flag: str  
 
     >>> beta_call = normalised_black(0.0, 0.2, 'c')
     >>> beta_put = normalised_black(0.1,0.23232323888,'p')
@@ -112,16 +119,14 @@ def implied_volatility_of_undiscounted_option_price(undiscounted_option_price, F
 
     """Calculate the implied volatility of the undiscounted Black option price
 
-    Keyword arguments:
-    
-    undiscounted_option_price = undiscounted Black price of a futures option
-    F -- underlying futures price
-    K -- option strike price
-    sigma -- annualized standard deviation, or volatility
-    t -- time to expiration in years
-    r -- the risk-free interest rate
-    flag -- 'p' or 'c' for put or call
-
+    :param undiscounted_option_price: undiscounted Black price of a futures option
+    :type undiscounted_option_price: float
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float  
 
     >>> F = 100
     >>> K = 100
@@ -150,15 +155,18 @@ def implied_volatility_of_discounted_option_price(discounted_option_price, F, K,
 
     """Calculate the implied volatility of the Black option price
 
-    Keyword arguments:
-
-    undiscounted_option_price = undiscounted Black price of a futures option
-    F -- underlying futures price
-    K -- option strike price
-    sigma -- annualized standard deviation, or volatility
-    t -- time to expiration in years
-    r -- the risk-free interest rate
-    flag -- 'p' or 'c' for put or call
+    :param discounted_option_price: discounted Black price of a futures option
+    :type discounted_option_price: float
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param r: the risk-free interest rate
+    :type r: float 
+    :param t: time to expiration in years
+    :type t: float
+    :param flag: 'p' or 'c' for put or call
+    :type flag: str
 
 
     >>> F = 100
@@ -196,13 +204,14 @@ def implied_volatility_of_undiscounted_option_price_limited_iterations(
     """Calculate implied volatility of the undiscounted Black 
     option price with limited iterations.
 
-    Keyword arguments:
-    S -- spot price of the underlying asset
-    K -- option strike price
-    sigma -- annualized standard deviation, or volatility
-    t -- time to expiration in years
-    flag -- 'p' or 'c' for put or call
-    N -- the maximum number of iterations to perform
+    :param undiscounted_option_price: undiscounted Black price of a futures option
+    :type undiscounted_option_price: float
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float 
 
     >>> F = 100
     >>> K = 100

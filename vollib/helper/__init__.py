@@ -47,29 +47,51 @@ ONE_OVER_SQRT_TWO_PI = 0.3989422804014326779399460599343818684758586311649
 CALL = 'c'
 PUT = 'p'
 
-'''
-Note:  The paper "Let's be Rational" uses theta for q.
-+1 represents a call, -1 represents a put.
-
-See page 1, Introduction, first paragraph.
-'''
 
 binary_flag = {CALL:1,PUT:-1}
+"""
+::
 
+  ========================================================
+
+  Note:  In "Let's be Rational," Peter Jäckel uses θ as a flag
+  to distinguish between puts and calls.
+  +1 represents a call, -1 represents a put.
+
+  See page 1, Introduction, first paragraph.
+  ========================================================
+
+>>> binary_flag['c']:
+1
+>>> binary_flag['c']:
+-1
+
+
+"""
 # -----------------------------------------------------------------------------
 # FUNCTIONS
 
 pdf = lambda x: ONE_OVER_SQRT_TWO_PI * numpy.exp(-.5*x*x)
+"""the probability density function
+
+    :param x: a continuous random variable
+    :type S: float
+
+"""
+
 
 def forward_price(S,t,r):
     
 
     """Calculate the forward price of an underlying asset.
 
-    Keyword arguments:
-    S -- spot price of the underlying asset
-    t -- time to expiration in years
-    r -- the risk-free interest rate
+    :param S: underlying asset price
+    :type S: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+  
 
     >>> S = 95
     >>> t = .5

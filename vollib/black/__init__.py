@@ -61,8 +61,21 @@ From John C. Hull, "Options, Futures and Other Derivatives,"
 
 def d1(F, K, t, r, sigma): # keep r argument for consistency
     
-    """
-    Hull, page 343, example 16.6
+    """Calculate the d1 component of the Black PDE.
+
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float  
+        
+        
+    Doctest using Hull, page 343, example 16.6
     
     >>> F = 20
     >>> K = 20
@@ -85,7 +98,19 @@ def d1(F, K, t, r, sigma): # keep r argument for consistency
 
 def d2(F, K, t, r, sigma): # keep r argument for consistency
     
-    """
+    """Calculate the d2 component of the Black PDE.
+
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float    
+    
     Hull, page 343, example 16.6
 
     >>> F = 20
@@ -106,7 +131,23 @@ def d2(F, K, t, r, sigma): # keep r argument for consistency
 
 def black_call(F, K, t, r, sigma):  #Equation 16.9
     
-    """
+
+    """Calculate the price of a call using Black.  (Python
+    implementation for reference.)
+
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float    
+    
+    
+    
     Hull, page 343, example 16.7
     
     >>> F = 620
@@ -129,7 +170,22 @@ def black_call(F, K, t, r, sigma):  #Equation 16.9
 
 def black_put(F, K, t, r, sigma):  #Equation 16.10
 
-    """
+
+    """Calculate the price of a put using Black.  (Python
+    implementation for reference.)
+
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float        
+    
+    
     Hull, page 338, example 16.6
 
     >>> F = 20
@@ -157,12 +213,14 @@ def undiscounted_black(F, K, sigma, t, flag):
 
     """Calculate the **undiscounted** Black option price.
 
-    Keyword arguments:
-    F -- futures price
-    K -- option strike price
-    sigma -- annualized standard deviation, or volatility
-    t -- time to expiration in years
-    flag -- 'p' or 'c' for put or call
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float   
 
     >>> F = 100
     >>> K = 100
@@ -187,12 +245,14 @@ def black(flag, F, K, t, r, sigma):
     
     """Calculate the (discounted) Black option price.
 
-        Keyword arguments:
-        F -- futures price
-        K -- option strike price
-        sigma -- annualized standard deviation, or volatility
-        t -- time to expiration in years
-        flag -- 'p' or 'c' for put or call
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float  
         
     >>> F = 100
     >>> K = 100
@@ -216,11 +276,12 @@ def normalised_black(x, s, flag):
     a time invariant transformation
     of the Black pricing formula.
 
-    Keyword arguments:
-    x -- the ln(F/K) where K is the strike price, and F is the futures price
-    s -- volatility times the square root of time to expiration
-    flag -- 'p' or 'c' for put or call   
-    
+    :param x: ln(F/K) where K is the strike price, and F is the futures price
+    :type x: float
+    :param s: volatility times the square root of time to expiration
+    :type s: float
+    :param flag: 'p' or 'c' for put or call 
+    :type flag: str   
     
     >>> F = 100.
     >>> K = 95.
@@ -243,6 +304,8 @@ def normalised_black(x, s, flag):
 
 
 def test_python_vs_c_values():
+    
+    #comment
     
     """
     >>> F = 100

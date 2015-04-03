@@ -67,11 +67,45 @@ f = lambda flag, S, K, t, r, sigma, b: black_scholes(flag, S, K, t, r, sigma)
 
 def delta(flag, S, K, t, r, sigma):
     
+    """Return Black-Scholes delta of an option.
+    
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+    
+    """
+    
     b = r
 
     return numerical_delta(flag, S, K, t, r, sigma, b, f)
 
 def theta(flag, S, K, t, r, sigma):
+    
+    """Return Black-Scholes theta of an option.
+
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+
+    """    
     
     b = r
 
@@ -79,11 +113,45 @@ def theta(flag, S, K, t, r, sigma):
 
 def vega(flag, S, K, t, r, sigma):
 
+    """Return Black-Scholes vega of an option.
+
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+
+    """
+
     b = r
 
     return numerical_vega(flag, S, K, t, r, sigma, b, f)
 
 def rho(flag, S, K, t, r, sigma):
+    
+    """Return Black-Scholes rho of an option.
+
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+
+    """    
     
     b = r
 
@@ -91,84 +159,30 @@ def rho(flag, S, K, t, r, sigma):
 
 def gamma(flag, S, K, t, r, sigma):
 
+    """Return Black-Scholes gamma of an option.
+
+    :param S: underlying asset price
+    :type S: float
+    :param K: strike price
+    :type K: float
+    :param sigma: annualized standard deviation, or volatility
+    :type sigma: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: risk-free interest rate
+    :type r: float
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str      
+
+    """
+
     b = r
 
     return numerical_gamma(flag, S, K, t, r, sigma, b, f)
 
 
-
-def plot_numerical_vs_analytical_delta():
-
-    S_vals = numpy.linspace(10,250,2000)
-    K = 100
-    t = 1.0
-    r = .1
-    sigma = 0.3
-    flag = 'c'
-
-    analytical, numerical = [],[]
-
-    for S in S_vals:
-        analytical.append(adelta(flag, S, K, t, r, sigma))
-        numerical.append(delta(flag, S, K, t, r, sigma))
-    plt.plot(S_vals,analytical,label = 'Analytical')
-    plt.plot(S_vals,numerical, label = 'Numerical')
-    plt.grid()
-    plt.legend(loc = 'best')
-    plt.show()
-
-#plot_numerical_vs_analytical_delta()
-
-
-
-def plot_numerical_vs_analytical_theta():
-
-    S_vals = numpy.linspace(10,250,2000)
-    K = 100
-    t = 1.0
-    r = .1
-    sigma = 0.3
-    flag = 'c'
-
-    analytical, numerical = [],[]
-
-    for S in S_vals:
-        analytical.append(atheta(flag, S, K, t, r, sigma))
-        numerical.append(theta(flag, S, K, t, r, sigma))
-    plt.plot(S_vals,analytical,label = 'Analytical')
-    plt.plot(S_vals,numerical, label = 'Numerical')
-    plt.grid()
-    plt.legend(loc = 'best')
-    plt.show()
-    
-    
-def plot_numerical_vs_analytical_gamma():
-
-    S_vals = numpy.linspace(10,250,2000)
-    K = 100
-    t = 1.0
-    r = .1
-    sigma = 0.3
-    flag = 'c'
-
-    analytical, numerical = [],[]
-
-    for S in S_vals:
-        analytical.append(agamma(flag, S, K, t, r, sigma))
-        numerical.append(gamma(flag, S, K, t, r, sigma))
-    plt.plot(S_vals,analytical,label = 'Analytical')
-    plt.plot(S_vals,numerical, label = 'Numerical')
-    plt.grid()
-    plt.legend(loc = 'best')
-    plt.show()
-    
-#plot_numerical_vs_analytical_gamma()
-
-
-
-
 def test():
-    """
+    """Test by comparing analytical and numerical values.
     
     >>> S =  49
     >>> K = 50 
