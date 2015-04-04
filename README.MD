@@ -1,12 +1,12 @@
-vollib
+# vollib
 ======
 
-About the initial release
+### About the initial release
 =========================
 
 This is the initial release of vollib.  Tests and documentation are still incomplete.
 
-Background
+### Background
 ==========
 
 Vollib is a python library for calculating option prices, 
@@ -22,22 +22,26 @@ to calculate option prices, implied volatility and greeks using
 Black, Black-Scholes, and Black-Scholes-Merton. vollib 
 implements both analytical and numerical greeks.
 
-Vollib depends on the lets_be_rational package, a simple 
+Vollib depends on the ```lets_be_rational``` package, a simple 
 (SWIG) wrapper for those only needed access to Peter Jäckel's 
 C functions inside Python. Both lets_be_rational and vollib 
 can be easily installed using the "pip" command on Windows, 
 Linux, or Macintosh OS X
 
-Dependencies
+### Dependencies
 ============
 
-Vollib depends on numpy and lets_be_rational.  The easiest way to install is with pip.
+SWIG must be installed prior to installing ```vollib```. Download and 
+install [SWIG](http://www.swig.org/download.html).
+
+Vollib depends on numpy, pandas and lets_be_rational.  The easiest way to install is with pip.
 
 lets_be_rational is quite stable compared to vollib, which is likely to be updated frequently.
+
 For those who wish to clone the vollib repo, you might prefer to install lets_be_rational 
 separately with pip, since this will take care of the C compilation.
 
-Links:
+### Links:
 ======
 
   * [Licence](http://vollib.org/license)
