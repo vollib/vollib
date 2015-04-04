@@ -47,27 +47,30 @@ ONE_OVER_SQRT_TWO_PI = 0.3989422804014326779399460599343818684758586311649
 CALL = 'c'
 PUT = 'p'
 
-
 binary_flag = {CALL:1,PUT:-1}
-"""
-::
 
-  ========================================================
+def test_binary_flag():
+    
+    """
+    ::
+    
+      ========================================================
+    
+      Note:  In "Let's be Rational," Peter Jäckel uses θ as a flag
+      to distinguish between puts and calls.
+      +1 represents a call, -1 represents a put.
+    
+      See page 1, Introduction, first paragraph.
+      
+      Throughout vollib this is replaced with 'c' and 'p'.
+      ========================================================    
+    
+    >>> binary_flag['c']
+    1
+    >>> binary_flag['p']
+    -1
+    """
 
-  Note:  In "Let's be Rational," Peter Jäckel uses θ as a flag
-  to distinguish between puts and calls.
-  +1 represents a call, -1 represents a put.
-
-  See page 1, Introduction, first paragraph.
-  ========================================================
-
->>> binary_flag['c']:
-1
->>> binary_flag['c']:
--1
-
-
-"""
 # -----------------------------------------------------------------------------
 # FUNCTIONS
 
@@ -96,8 +99,10 @@ def forward_price(S,t,r):
     >>> S = 95
     >>> t = .5
     >>> r = .02
-    >>> forward_price(S,t,r)
-    95.95476587299596
+    >>> F = forward_price(S,t,r)
+    >>> pre_calculated = 95.95476587299596
+    >>> abs(F-pre_calculated)<.000000001
+    True
     """
     return S/numpy.exp(-r*t)
 
