@@ -5,14 +5,14 @@ implied volatility and greeks. At its core is Peter Jäckel's
 source code for `LetsBeRational`, an extremely fast and accurate algorithm 
 for obtaining Black's implied volatility from option prices.
 
-Building on this solid foundation, vollib provides functions 
+Building on this solid foundation, `vollib` provides functions 
 to calculate option prices, implied volatility and greeks using 
 Black, Black-Scholes, and Black-Scholes-Merton. `vollib` 
 implements both analytical and numerical greeks for each of the three pricing formulae.
 
 ### About the initial release
 
-This is the initial release of vollib.  Tests and documentation are still incomplete.
+This is the initial release of `vollib`.  Tests and documentation are still incomplete.
 
 ### Dependencies
 
