@@ -128,21 +128,40 @@ def theta(flag, S, K, t, r, sigma):
     >>> annual_theta_text_book = -4.31
     >>> abs(annual_theta_calc - annual_theta_text_book) < .01
     True
+    
+    
+    Using the same inputs with a put.
+    >>> S = 49
+    >>> K = 50 
+    >>> r = .05
+    >>> t = 0.3846
+    >>> sigma = 0.2
+    >>> flag = 'p'
+    >>> annual_theta_calc = theta(flag, S, K, t, r, sigma) * 365
+    >>> # -1.8530056722
+    >>> annual_theta_reference = -1.8530056722
+    >>> abs(annual_theta_calc - annual_theta_reference) < .000001
+    True
+    
+    
     """
-
-    e_to_the_minus_rt = numpy.exp(-r*t)
+    
     two_sqrt_t = 2 * numpy.sqrt(t)
 
-    d_1 = d1(S, K, t, r, sigma)
-    d_2 = d2(S, K, t, r, sigma)
-    pdf_d1 = pdf(d_1)
-    cnd_d2 = cnd(d_2)
+    D1 = d1(S, K, t, r, sigma)
+    D2 = d2(S, K, t, r, sigma)
 
-    first_term = (-S * pdf_d1 * sigma) / two_sqrt_t 
-    second_term = r * K * e_to_the_minus_rt * cnd_d2
+    first_term = (-S * pdf(D1) * sigma) / two_sqrt_t 
 
-    return (first_term - second_term)/365.0
+    if flag == 'c':
 
+        second_term = r * K * numpy.exp(-r*t) * cnd(D2)
+        return (first_term - second_term)/365.0
+    
+    if flag == 'p':
+    
+        second_term = r * K * numpy.exp(-r*t) * cnd(-D2)
+        return (first_term + second_term)/365.0
 
 
 def gamma(flag, S, K, t, r, sigma):

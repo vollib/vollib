@@ -40,6 +40,7 @@ from math import e
 
 # Related third party imports
 import numpy
+from matplotlib import pyplot as plt
 
 # Local application/library specific imports
 from vollib.helper import forward_price
@@ -86,6 +87,8 @@ def d1(S,K,t,r,sigma):  # see Hull, page 292
     numerator = numpy.log( S/float(K) ) + ( r + sigma_squared/2.) * t
     denominator = sigma * numpy.sqrt(t)
 
+    if not denominator:
+        print ''
     return numerator/denominator
 
 def d2(S,K,t,r,sigma):  # see Hull, page 292
@@ -201,6 +204,29 @@ def black_scholes(flag, S, K, t, r, sigma):
     discount_factor = numpy.exp(-r*t)
     F = S / discount_factor
     return undiscounted_black(F, K, sigma, t, flag) * discount_factor
+
+
+def plot_price_vs_time():
+    
+    flag, r,sigma,S,K = 'p',.01,.2,100,80
+    
+    x, python_price, lbr_price = [],[],[]
+    
+    for t in numpy.linspace(0.01,0.2):
+        x.append(t)
+        python_price.append(python_black_scholes(flag, S, K, t, r, sigma))
+        lbr_price.append(black_scholes(flag, S, K, t, r, sigma))
+    
+    plt.plot(x,python_price,label = 'python')
+    plt.plot(x,lbr_price,label = 'lets_be_rational')
+    plt.xlim(max(x),min(x))
+    plt.legend()
+    plt.grid()
+    plt.show()
+        
+
+
+
 
 # -----------------------------------------------------------------------------
 # MAIN

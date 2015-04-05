@@ -43,6 +43,7 @@ from matplotlib import pyplot as plt
 
 # Local application/library specific imports
 from vollib.black_scholes import black_scholes
+from vollib.black_scholes import python_black_scholes
 
 # numerical greeks
 from vollib.helper.numerical_greeks import delta as numerical_delta
@@ -62,7 +63,7 @@ from vollib.black_scholes.greeks.analytical import theta as atheta
 # FUNCTIONS - NUMERICAL GREEK CALCULATION
 
 
-f = lambda flag, S, K, t, r, sigma, b: black_scholes(flag, S, K, t, r, sigma)
+f = lambda flag, S, K, t, r, sigma, b: python_black_scholes(flag, S, K, t, r, sigma)
 
 
 def delta(flag, S, K, t, r, sigma):
@@ -309,7 +310,6 @@ def hull_book_tests():
 # -----------------------------------------------------------------------------
 # MAIN
 if __name__=='__main__':  
-    print 'running doctests'
     import doctest
     if not doctest.testmod().failed:
         print "Doctest passed"

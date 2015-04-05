@@ -36,10 +36,11 @@
 # IMPORTS
 
 # Standard library imports
-import numpy
+
 
 # Related third party imports
 from matplotlib import pyplot as plt
+import numpy
 
 # Local application/library specific imports
 from vollib.black_scholes_merton import black_scholes_merton
@@ -241,7 +242,7 @@ def plot_numerical_vs_analytical(greek, flag):
     plt.show()
 
 
-#plot_numerical_vs_analytical('v','c')
+plot_numerical_vs_analytical('t','p')
 
 
 
