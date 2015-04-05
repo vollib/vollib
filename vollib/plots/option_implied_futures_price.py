@@ -57,10 +57,10 @@ def find_r_and_F(K,C,P,t):
 
 def make_test_data(F, sigma, r, t, noise):
     
-    '''
-    Returns a test option chain with up to 100 strikes 
+
+    """Returns a test option chain with up to 100 strikes 
     surrounding the futures price F.
-    '''
+    """
     
     K= range(max(1,F-50),F+50)
     
