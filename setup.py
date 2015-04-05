@@ -20,5 +20,5 @@ setup(
         'pandas',
         'scipy'
     ],
-    packages=find_packages()
+    packages=find_packages(exclude=('docs',))
 )
