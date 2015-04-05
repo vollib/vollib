@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='vollib',
-    version='0.1.3',
+    version='0.1.4',
     description='',
     url='http://vollib.org',
     download_url='git+https://github.com/vollib/vollib.git#egg=vollib',
