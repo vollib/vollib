@@ -41,7 +41,7 @@
 
 # Related third party imports
 import lets_be_rational
-from scipy.optimize import brentq
+
 import numpy
 
 # Local application/library specific imports
@@ -56,43 +56,7 @@ e = numpy.e
 # FUNCTIONS, FOR REFERENCE AND TESTING
 
 
-def implied_volatility_brent(price, S, K, t, r, flag):
 
-    """Calculate the Black-Scholes implied volatility
-    using the Brent method (for reference).
-
-    :param price: the Black-Scholes option price
-    :type price: float
-    :param S: underlying asset price
-    :type S: float
-    :param K: strike price
-    :type K: float
-    :param t: time to expiration in years
-    :type t: float
-    :param r: risk-free interest rate
-    :type r: float
-    :param flag: 'c' or 'p' for call or put.
-    :type flag: str  
-    
-    
-    >>> S = 100
-    >>> K = 100
-    >>> sigma = .2
-    >>> r = .01
-    >>> flag = 'c'
-    >>> t = .5
-
-    >>> price = black_scholes(flag, S, K, t, r, sigma)
-    >>> iv = implied_volatility_brent(price, S, K, t, r, flag)
-
-    >>> print price, iv
-    5.87602423383 0.2
-    """  
-
-    def function_to_minimize(sigma):
-        return price - black_scholes(flag, S, K, t, r, sigma)
-
-    return brentq(function_to_minimize,0,10)  
 
 
 def implied_volatility_limited_iterations(price, S, K, t, r, flag, N):

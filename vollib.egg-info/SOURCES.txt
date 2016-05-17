@@ -22,8 +22,6 @@ vollib/black_scholes_merton/greeks/analytical.py
 vollib/black_scholes_merton/greeks/numerical.py
 vollib/helper/__init__.py
 vollib/helper/numerical_greeks.py
-vollib/plots/__init__.py
-vollib/plots/numerical_vs_analytic_greeks.py
 vollib/tests/__init__.py
 vollib/tests/test_black_scholes.py
 vollib/tests/test_black_scholes_greeks.py

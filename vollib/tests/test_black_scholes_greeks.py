@@ -1,6 +1,5 @@
 import numpy
 import unittest
-from matplotlib import pyplot as plt
 
 from vollib.black_scholes import black_scholes
 from vollib.black_scholes import python_black_scholes

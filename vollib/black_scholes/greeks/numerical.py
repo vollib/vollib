@@ -39,7 +39,7 @@
 import numpy
 
 # Related third party imports
-from matplotlib import pyplot as plt
+
 
 # Local application/library specific imports
 from vollib.black_scholes import black_scholes

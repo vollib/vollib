@@ -1,5 +1,4 @@
 lets_be_rational
 simplejson
-matplotlib
+numpy
 pandas
-scipy

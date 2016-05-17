@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='vollib',
-    version='0.1.4',
+    version='0.1.5',
     description='',
     url='http://vollib.org',
     download_url='git+https://github.com/vollib/vollib.git#egg=vollib',
@@ -16,9 +16,8 @@ setup(
     install_requires = [
         'lets_be_rational',
         'simplejson',
-        'matplotlib',
-        'pandas',
-        'scipy'
+        'numpy',
+        'pandas'
     ],
-    packages=find_packages(exclude=('docs',))
+    packages=find_packages(exclude=('docs','tests','plots'))
 )

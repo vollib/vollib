@@ -39,7 +39,7 @@
 
 
 # Related third party imports
-from matplotlib import pyplot as plt
+
 import numpy
 
 # Local application/library specific imports
@@ -181,65 +181,6 @@ def gamma(flag, S, K, t, r, sigma, q):
     :returns:  float 
     """   
     return numerical_gamma(flag, S, K, t, r, sigma, q, f)
-
-
-def plot_numerical_vs_analytical(greek, flag):
-    
-    """Displays a plot comparing analytically and numerically
-    computed values of a given greek and option type.
-    
-    
-    :param flag: 'd','g','t','r', or 'v'
-    :type flag: str
-    :param flag: 'c' or 'p' for call or put.
-    :type flag: str
-    
-    
-        """
-
-
-    f_analytical, f_numerical = {
-        'd':(adelta,delta),
-        'g':(agamma,gamma),
-        't':(atheta,theta),
-        'v':(avega,vega),
-        'r':(arho, rho),
-        }[greek]
-
-
-    S_vals = numpy.linspace(10,250,2000)
-    K=100
-    t =.5
-    q =.05
-    sigma = 0.2
-    r = .01
-
-
-    price, analytical, numerical = [],[],[]
-
-
-    for S in S_vals:
-        analytical.append(f_analytical(flag, S, K, t, r, sigma, q))
-        numerical.append(f_numerical(flag, S, K, t, r, sigma, q))
-        price.append(black_scholes_merton(flag, S, K, t, r, sigma, q))
-    plt.figure(1)
-    plt.subplot(211)
-    plt.plot(S_vals,analytical,label = 'Analytical')
-    plt.plot(S_vals,numerical, label = 'Numerical')
-    min_a, max_a = min(analytical), max(analytical)
-    h = max_a-min_a
-    plt.ylim(min_a - h*.05, max_a + h*.05)
-    plt.grid()
-    plt.legend(loc = 'best')
-
-    plt.subplot(212)
-    plt.plot(S_vals,price, label = 'Price')
-    plt.ylim(min(min(price),-10), max(max(price),10))
-    plt.grid()
-    plt.legend(loc = 'best')
-
-
-    plt.show()
 
 
 plot_numerical_vs_analytical('t','p')

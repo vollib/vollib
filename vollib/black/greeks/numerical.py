@@ -35,7 +35,7 @@
 
 
 import numpy
-from matplotlib import pyplot as plt
+
 from vollib.black import black
 from vollib.helper.numerical_greeks import delta as numerical_delta
 from vollib.helper.numerical_greeks import vega as numerical_vega
@@ -217,51 +217,6 @@ def test():
     pass
 
 
-
-def plot_numerical_vs_analytical(greek, flag):
-
-    f_analytical, f_numerical = {
-    'd':(adelta,delta),
-    'g':(agamma,gamma),
-    't':(atheta,theta),
-    'v':(avega,vega),
-    'r':(arho, rho),
-    }[greek]
-
-
-    S_vals = numpy.linspace(10,250,2000)
-    K = 100
-    t = 1.0
-    r = .1
-    sigma = 0.3
-
-
-    price, analytical, numerical = [],[],[]
-    
-    
-    for S in S_vals:
-        analytical.append(f_analytical(flag, S, K, t, r, sigma))
-        numerical.append(f_numerical(flag, S, K, t, r, sigma))
-        price.append(black(flag, S, K, t, r, sigma))
-    plt.figure(1)
-    plt.subplot(211)
-    plt.plot(S_vals,analytical,label = 'Analytical')
-    plt.plot(S_vals,numerical, label = 'Numerical')
-    min_a, max_a = min(analytical), max(analytical)
-    h = max_a-min_a
-    plt.ylim(min_a - h*.05, max_a + h*.05)
-    plt.grid()
-    plt.legend(loc = 'best')
-    
-    plt.subplot(212)
-    plt.plot(S_vals,price, label = 'Price')
-    plt.ylim(min(min(price),-10), max(max(price),10))
-    plt.grid()
-    plt.legend(loc = 'best')
-
-
-    plt.show()
-    
 
 
 # -----------------------------------------------------------------------------
