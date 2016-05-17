@@ -9,7 +9,7 @@ setup(
     version='0.1.5',
     description='',
     url='http://vollib.org',
-    download_url='git+https://github.com/vollib/vollib.git#egg=vollib',
+    # download_url='git+https://github.com/vollib/vollib.git#egg=vollib',
     maintainer='vollib',
     maintainer_email='support@quantycarlo.com',
     license='MIT',
@@ -19,5 +19,5 @@ setup(
         'numpy',
         'pandas'
     ],
-    packages=find_packages(exclude=('docs','tests','plots'))
+    packages=find_packages(exclude=['docs', 'vollib/tests'])
 )

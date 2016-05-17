@@ -1,4 +1,4 @@
-Metadata-Version: 1.1
+Metadata-Version: 1.0
 Name: vollib
 Version: 0.1.5
 Summary: UNKNOWN
@@ -6,6 +6,5 @@ Home-page: http://vollib.org
 Author: vollib
 Author-email: support@quantycarlo.com
 License: MIT
-Download-URL: git+https://github.com/vollib/vollib.git#egg=vollib
 Description: UNKNOWN
 Platform: UNKNOWN
