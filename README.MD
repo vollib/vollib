@@ -60,7 +60,7 @@ merchantability, fitness for a particular purpose, or non-infringement.
 
   *  [pip](https://pypi.python.org/pypi/pip)
 
-  *  [SWIG](http://www.swig.org/download.html).
+  *  [SWIG](http://www.swig.org/download.html)
   
   * [Licence](http://vollib.org/license)
 
