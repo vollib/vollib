@@ -24,6 +24,12 @@ To install via pip, type the following:
 >>> pip install vollib
 ```
 
+For Python3 install via pip, type the following:
+
+```
+>>> pip install py-vollib
+```
+
 Installing `vollib` via pip will automatically install the necessary dependencies,
 except for SWIG, pip, and Python.  This has been tested to work on Windows, Linux and Macintosh OS X.
 
