@@ -1,3 +1,6 @@
+> **Warning**
+> This library is only compatible with python2.7. Please see the updated library here - https://github.com/vollib/py_vollib
+
 # `vollib`
 
 `vollib` is a python library for calculating option prices, 
@@ -23,6 +26,9 @@ To install via pip, type the following:
 ```
 >>> pip install vollib
 ```
+
+> **Warning**
+> This library is only compatible with python2.7. Please see the updated library here - https://github.com/vollib/py_vollib
 
 Installing `vollib` via pip will automatically install the necessary dependencies,
 except for SWIG, pip, and Python.  This has been tested to work on Windows, Linux and Macintosh OS X.
