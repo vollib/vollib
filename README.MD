@@ -1,3 +1,6 @@
+> **Warning**
+> This library is only compatible with python2.7. Please see the updated library here - https://github.com/vollib/py_vollib
+
 # `vollib`
 
 `vollib` is a python library for calculating option prices, 
